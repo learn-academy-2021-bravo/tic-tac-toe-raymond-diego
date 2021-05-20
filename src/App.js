@@ -6,13 +6,21 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      squares: ["", "", "", "", "", "", "", "", ""]
+      squares: ["", "", "", "", "", "", "", "", ""],
+      playerTurn: false
     }
   }
    handleClick = (index) => {
     const {squares} = this.state;
-    squares[index] = "❌"
-    this.setState({squares:squares}) 
+    const {playerTurn} = this.state;
+    if(playerTurn === false){
+      squares[index] = "❌"
+    } else {
+      squares[ index ] = "⭕️"
+    }
+    this.setState({squares:squares})
+    this.setState({playerTurn:!playerTurn}) 
+    console.log(playerTurn);
   }
   
 
