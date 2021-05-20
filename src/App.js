@@ -46,9 +46,11 @@ class App extends Component{
     
   }
 
+  //if either player has this or this and this and this in their array then they win
+
 
   checkGame = (player) => {
-    console.log(player);
+    let winningArray = player;
     let winConditions = [
       [0,1,2],
       [3,4,5],
@@ -59,12 +61,34 @@ class App extends Component{
       [0,4,8],
       [2,4,6],
    ] 
-    
+
+
+
    for (let i = 0; i < winConditions.length; ++i){
-     for (let j = 0; j < winConditions[i].length; ++j){
-       
-     }
+    let arrIndx = 0
+    let seqIndx = 0
+    while (arrIndx < winConditions[i].length && seqIndx < player.length) {
+      if (winConditions[i][arrIndx] === player[seqIndx]) seqIndx++;
+      arrIndx++;
+    }
+    if(seqIndx === player.length && player.length > 2){
+      console.log(`win`);
+    }
    }
+
+  //  for (let i = 0; i<winConditions.length; ++i){
+  //     let a = winConditions[i];
+  //     console.log(a === winningArray)
+  //  }
+
+
+    
+  //  for (let i = 0; i < winConditions.length; ++i){
+  //    for (let j = 0; j < winConditions.length; ++j){
+          
+  //         );
+  //    }
+  //  }
 
      
      
